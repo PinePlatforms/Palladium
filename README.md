@@ -1,4 +1,4 @@
-![Heliactyl](https://cdn.discordapp.com/attachments/1063585626022223892/1065304573058764850/PylexPlus_2.png)
+![Palladium](https://cdn.discordapp.com/attachments/1056121952051396705/1079723556109303890/image-45.png)
 
 <hr>
 
