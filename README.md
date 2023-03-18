@@ -1,3 +1,4 @@
+![Palladium](https://cdn.discordapp.com/attachments/1085575983274401912/1086714457843056762/Palladium.png)
 ![Palladium](https://cdn.discordapp.com/attachments/1056121952051396705/1079723556109303890/image-45.png)
 
 <hr>
