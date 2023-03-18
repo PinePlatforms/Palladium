@@ -1,0 +1,258 @@
+<%- include('./components/wrapper') %>
+<% if (req.query.err == "MISSINGPARAMS") { %>
+<div class="bg-red-900/50 border-l-4 border-red-400 rounded-lg text-red-100 px-4 py-3 relative mb-8" role="alert">
+  <div class="flex">
+    <div class="py-1">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400 mr-3">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+      </svg>      
+    </div>
+    <div>
+      <p class="font-bold">Missing Parameters</p>
+      <p class="text-sm relative">All inputs must be filled out in order for you to create a server.</p>
+    </div>
+    <span onclick="location.href = '../create-server';" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>      
+    </span>
+  </div>
+</div>
+<% } %>
+<% if (req.query.err == "NOTENOUGHRESOURCES") { %>
+  <div class="bg-red-900/50 border-l-4 border-red-400 rounded-lg text-red-100 px-4 py-3 relative mb-8" role="alert">
+    <div class="flex">
+      <div class="py-1">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400 mr-3">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+        </svg>      
+      </div>
+      <div>
+        <p class="font-bold">Insufficient Resources</p>
+        <p class="text-sm relative">You'll need more resources to create a server with the specified amount of resources.</p>
+      </div>
+      <span onclick="location.href = '../create-server';" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>      
+      </span>
+    </div>
+  </div>
+  <% } %>
+<% if (req.query.err == "INVALID") { %>
+  <div class="bg-red-900/50 border-l-4 border-red-400 rounded-lg text-red-100 px-4 py-3 relative mb-8" role="alert">
+    <div class="flex">
+      <div class="py-1">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400 mr-3">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+        </svg>      
+      </div>
+      <div>
+        <p class="font-bold">Invalid Characters</p>
+        <p class="text-sm relative">One of your inputs has invalid characters in it.</p>
+      </div>
+      <span onclick="location.href = '../create-server';" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>      
+      </span>
+    </div>
+  </div>
+<% } %>
+<% if (req.query.err == "ERRORONCREATE") { %>
+    <div class="bg-red-900/50 border-l-4 border-red-400 rounded-lg text-red-100 px-4 py-3 relative mb-8" role="alert">
+      <div class="flex">
+        <div class="py-1">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400 mr-3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+          </svg>      
+        </div>
+        <div>
+            <p class="font-bold">Internal Server Error</p>
+            <p class="text-sm relative">Palladium couldn't process the action due to an internal issue.</p>
+        </div>
+        <span onclick="location.href = '../dashboard';" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>      
+        </span>
+      </div>
+    </div>
+<% } %>
+<div>
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-4 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-white">Basic Details</h3>
+          <p class="mt-1 text-sm text-gray-400">This information will be displayed in the server management list on both the Panel and Dashboard.</p>
+        </div>
+      </div>
+      <div class="mt-5 md:col-span-2 md:mt-0">
+        <form action="#" method="POST">
+          <div class="shadow sm:overflow-hidden sm:rounded-md">
+            <div class="space-y-6 bg-gray-700/50 px-4 py-5 sm:p-6 rounded-md ">
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="company-website" class="block text-sm font-medium text-gray-400">Server Name</label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input type="text" name="company-website" id="name" class="transition ease-in-out delay-100 block w-full flex-1 text-white rounded-md bg-gray-700 border-gray-600/75 focus:border-blue-500 focus:ring-blue-500 sm:text-sm" placeholder="My server">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="hidden sm:block" aria-hidden="true">
+    <div class="py-5">
+      <div class="border-t border-gray-700/75"></div>
+    </div>
+  </div>
+  
+  <div class="mt-10 sm:mt-0">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-4 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-white">Configuration</h3>
+          <p class="mt-1 text-sm text-gray-400">Choose the location and egg for your server. This cannot be changed.</p>
+        </div>
+      </div>
+      <div class="mt-5 md:col-span-2 md:mt-0">
+        <form action="#" method="POST">
+          <div class="overflow-hidden shadow sm:rounded-md">
+            <div class="space-y-6 bg-gray-700/50 px-4 py-5 sm:p-6 rounded-md ">
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="company-website" class="block text-sm font-medium text-gray-400">Location</label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <select type="text" name="company-website" id="location" class="transition ease-in-out delay-100 block w-full flex-1 text-white rounded-md bg-gray-700 border-gray-600/75 focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                      <!-- <% locationids.locationids.forEach(function(location) { %>
+                        <option value="<%= locationids %>"><%= locations[location].name %></option>
+                      <% }); %> -->
+                      <option value="2">Phoenix, US</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="company-website" class="block text-sm font-medium text-gray-400">Egg</label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <select type="text" name="company-website" id="egg" class="transition ease-in-out delay-100 block w-full flex-1 text-white rounded-md bg-gray-700 border-gray-600/75 focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                      <% eggs.forEach(function(egg) { %>
+                        <option value="<%= egg.id %>"><%= egg.name %></option>
+                      <% }); %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="hidden sm:block" aria-hidden="true">
+    <div class="py-5">
+      <div class="border-t border-gray-700/75"></div>
+    </div>
+  </div>
+  <script>
+    async function submitForm() {
+      let name = encodeURIComponent(document.getElementById("name").value);
+      let egg = encodeURIComponent(document.getElementById("egg").value);
+      let ram = encodeURIComponent(document.getElementById("ram").value);
+      let disk = encodeURIComponent(document.getElementById("disk").value);
+      let cpu = encodeURIComponent(document.getElementById("cpu").value);
+      let location = encodeURIComponent(document.getElementById("location").value);
+      document.location.href = `/create?name=${name}&egg=${egg}&ram=${ram}&disk=${disk}&cpu=${cpu}&location=${location}`;
+    };
+  </script>
+  <div class="mt-10 sm:mt-0">
+  
+  <div>
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-4 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-white">Resources</h3>
+          <p class="mt-1 text-sm text-gray-400">Decide how much of your total resource balance should be allocated to this server.</p>
+        </div>
+      </div>
+      <div class="mt-5 md:col-span-2 md:mt-0">
+        <form action="#" method="POST">
+          <div class="shadow sm:overflow-hidden sm:rounded-md">
+            <div class="space-y-6 bg-gray-700/50 px-4 py-5 sm:p-6 rounded-md">
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="company-website" class="block text-sm font-medium text-gray-400">RAM</label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input type="text" name="company-website" id="ram" class="transition ease-in-out delay-100 block w-full flex-1 text-white rounded-md bg-gray-700 border-gray-600/75 focus:border-blue-500 focus:ring-blue-500 sm:text-sm" placeholder="2048">
+                  </div>
+                </div>
+              </div>
+  
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="company-website" class="block text-sm font-medium text-gray-400">CPU</label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input type="text" name="company-website" id="cpu" class="transition ease-in-out delay-100 block w-full flex-1 text-white rounded-md bg-gray-700 border-gray-600/75 focus:border-blue-500 focus:ring-blue-500 sm:text-sm" placeholder="2048">
+                  </div>
+                </div>
+              </div>
+  
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="company-website" class="block text-sm font-medium text-gray-400">Disk</label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input type="text" name="company-website" id="disk" class="transition ease-in-out delay-100 block w-full flex-1 text-white rounded-md bg-gray-700 border-gray-600/75 focus:border-blue-500 focus:ring-blue-500 sm:text-sm" placeholder="2048">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="hidden sm:block" aria-hidden="true">
+    <div class="py-5">
+      <div class="border-t border-gray-700/75"></div>
+    </div>
+  </div>
+  
+  <div>
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-4 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-white">Confirm Details</h3>
+          <p class="mt-1 text-sm text-gray-400">Once you are ready, click the Create button.</p>
+        </div>
+      </div>
+      <div class="mt-5 md:col-span-2 md:mt-0">
+          <div class="sm:overflow-hidden sm:rounded-md">
+            <div class="flex justify-end w-full">
+          <button onclick="submitForm()" class="transition ease-in-out delay-100 group relative flex w-1/4 justify-center rounded-md border border-transparent bg-blue-500 py-2 px-4 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none">
+            Create
+          </button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+            <!-- /End replace -->
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  
+  <%- include('./components/footer') %>

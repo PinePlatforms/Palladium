@@ -1,0 +1,51 @@
+<%- include('./components/wrapper') %>
+      <script>
+        let session = 0;
+        function connect() {
+            const ws = new WebSocket(`${window.location.href.startsWith("https://") ? "wss" : "ws"}://${window.location.href.replace("http://","").replace("https://","").split("/")[0]}/afkws`)
+            ws.onopen = () => {
+                console.log("[WS] Connected to websocket.")
+                document.getElementById("coinCountdown").innerHTML = "60 seconds";
+            }
+            ws.onmessage = msg => {
+                let z = JSON.parse(msg.data);
+                if(z.type == "count") {
+                    document.getElementById("coinCountdown").innerHTML = `${z.amount} seconds`;
+                }else if(z.type == "coin") {
+                    session++;
+                    document.getElementById("sessionEarn").innerHTML = `${session} coins`;
+                    //document.getElementById("sessionEarn").innerHTML = `${parseInt("<%= coins %>")+session} coins`
+                }
+            }
+            ws.onerror = err => {
+                console.log("[WS] Error connecting to websocket.")
+                console.log(err)
+                document.getElementById("coinCountdown").innerHTML = "Reconnecting...";
+                document.getElementById("sessionEarn").innerHTML = `Reconnecting...`;
+                setTimeout(() => {
+                    connect()
+                },750)
+            }
+            ws.onclose = () => {
+                document.getElementById("coinCountdown").innerHTML = "Reconnecting...";
+                document.getElementById("sessionEarn").innerHTML = `Reconnecting...`;
+                setTimeout(() => {
+                    connect()
+                },750)
+            }
+        }
+        connect()
+    </script>
+<p class="text-white">You are currently earning coins using the AFK page!</p>
+<p class="text-gray-400">You will earn a coin in <code style="color: white;" id="coinCountdown">Connecting to websocket...</code></p>
+<p class="text-gray-400">This earning session you have earned <code style="color: white;" id="sessionEarn">0 coins</code></p>
+
+  
+            <!-- /End replace -->
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  
+  <%- include('./components/footer') %>

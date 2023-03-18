@@ -1,0 +1,193 @@
+<%- include('./components/wrapper') %>
+<% if (req.query.err == "INTERNALERROR") { %>
+<div class="bg-red-900/50 border-l-4 border-red-400 rounded-lg text-red-100 px-4 py-3 relative" role="alert">
+  <div class="flex">
+    <div class="py-1">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400 mr-3">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+      </svg>      
+    </div>
+    <div>
+      <p class="font-bold">Internal Server Error</p>
+      <p class="text-sm relative">Palladium couldn't process the action due to an internal issue.</p>
+    </div>
+    <span onclick="location.href = '../dashboard';" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>      
+    </span>
+  </div>
+</div>
+<% } %>
+<% if (req.query.err == "DONOTOWN") { %>
+  <div class="bg-red-900/50 border-l-4 border-red-400 rounded-lg text-red-100 px-4 py-3 relative" role="alert">
+    <div class="flex">
+      <div class="py-1">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400 mr-3">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+        </svg>      
+      </div>
+      <div>
+        <p class="font-bold">Unauthorized</p>
+        <p class="text-sm relative">The server you attempted to delete was not owned by you. The deletion has been cancelled.</p>
+      </div>
+      <span onclick="location.href = '../dashboard';" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>      
+      </span>
+    </div>
+  </div>
+<% } %>
+<% if (req.query.err == "NOTFOUND") { %>
+    <div class="bg-red-900/50 border-l-4 border-red-400 rounded-lg text-red-100 px-4 py-3 relative" role="alert">
+      <div class="flex">
+        <div class="py-1">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400 mr-3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+          </svg>      
+        </div>
+        <div>
+          <p class="font-bold">Bad Request</p>
+          <p class="text-sm relative">The action could not completed as the server in the request was not found.</p>
+        </div>
+        <span onclick="location.href = '../dashboard';" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>      
+        </span>
+      </div>
+    </div>
+<% } %>
+<% if (req.query.success == "CREATED") { %>
+  <div class="bg-green-900/50 border-l-4 border-green-400 rounded-lg text-green-100 px-4 py-3 relative" role="alert">
+    <div class="flex">
+      <div class="py-1">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-400 mr-3">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>               
+      </div>
+      <div>
+        <p class="font-bold">Server Created</p>
+        <p class="text-sm relative">The server has been created. You'll receive an email once it is fully installed.</p>
+      </div>
+      <span onclick="location.href = '../dashboard';" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-400">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>      
+      </span>
+    </div>
+  </div>
+  <% } %>
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div>
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-6">
+      <div class="relative bg-gray-700/50 pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden">
+        <dt>
+          <div class="absolute bg-blue-500 rounded-md p-3">
+            <!-- Heroicon name: outline/users -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" />
+            </svg>              
+          </div>
+          <p class="ml-16 text-sm font-medium text-gray-500 truncate">RAM Available</p>
+        </dt>
+        <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
+          <p class="text-2xl font-semibold text-white"><%= max.ram - existing.ram %>MB</p>
+          <div class="absolute bottom-0 inset-x-0 bg-gray-700/25 px-4 py-4 sm:px-6">
+            <div class="text-sm">
+              <a href="../store" class="font-medium text-blue-300 hover:text-blue-400"> Buy extra RAM</a>
+            </div>
+          </div>
+        </dd>
+      </div>
+  
+      <div class="relative bg-gray-700/50 pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden">
+        <dt>
+            <div class="absolute bg-blue-500 rounded-md p-3">
+              <!-- Heroicon name: outline/users -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
+              </svg>              
+            </div>
+            <p class="ml-16 text-sm font-medium text-gray-500 truncate">CPU Available</p>
+          </dt>
+          <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
+            <p class="text-2xl font-semibold text-white"><%= max.cpu - existing.cpu %>%</p>
+            <div class="absolute bottom-0 inset-x-0 bg-gray-700/25 px-4 py-4 sm:px-6">
+              <div class="text-sm">
+                <a href="../store" class="font-medium text-blue-300 hover:text-blue-400"> Buy extra CPU</a>
+              </div>
+            </div>
+          </dd>
+      </div>
+  
+      <div class="relative bg-gray-700/50 pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden">
+        <dt>
+            <div class="absolute bg-blue-500 rounded-md p-3">
+              <!-- Heroicon name: outline/users -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+              </svg>              
+            </div>
+            <p class="ml-16 text-sm font-medium text-gray-500 truncate">Disk Available</p>
+          </dt>
+          <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
+            <p class="text-2xl font-semibold text-white"><%= max.disk - existing.disk %>MB</p>
+            <div class="absolute bottom-0 inset-x-0 bg-gray-700/25 px-4 py-4 sm:px-6">
+              <div class="text-sm">
+                <a href="../store" class="font-medium text-blue-300 hover:text-blue-400"> Buy extra Disk</a>
+              </div>
+            </div>
+          </dd>
+      </div>
+    </dl>
+  </div>  
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="flex flex-col">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="shadow overflow-hidden border-b border-gray-700/10 sm:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-700/10">
+            <thead class="bg-gray-700/25">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">RAM</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CPU</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Disk</th>        
+                <th scope="col" class="relative px-6 py-3">
+                  <span class="sr-only">Edit</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-gray-700/50 divide-y divide-gray-700/10">
+                <% for (let server of servers) { %>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white"><%= server.attributes.name %></td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400"><%= server.attributes.identifier %></td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400"><%= server.attributes.limits.memory %></td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400"><%= server.attributes.limits.cpu %></td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400"><%= server.attributes.limits.disk  %></td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <a href="../delete?id=<%= server.attributes.id %>" class="text-red-300 hover:text-red-400">Delete</a>
+                </td>
+              </tr>
+                <% } %>
+  
+              <!-- More people... -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+            <!-- /End replace -->
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  
+  <%- include('./components/footer') %>

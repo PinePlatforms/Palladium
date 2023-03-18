@@ -1,0 +1,105 @@
+<%- include('./components/wrapper') %>
+
+<% if (req.query.success == "COMPLETE") { %>
+    <div class="bg-green-900/50 border-l-4 border-green-400 rounded-lg text-green-100 px-4 py-3 relative mb-8" role="alert">
+      <div class="flex">
+        <div class="py-1">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-400 mr-3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>               
+        </div>
+        <div>
+          <p class="font-bold">Action Completed</p>
+          <p class="text-sm relative">The changes to the user have been made.</p>
+        </div>
+        <span onclick="location.href = '../admin';" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-400">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>      
+        </span>
+      </div>
+    </div>
+    <% } %>
+    <% if (req.query.err == "INVALIDPARAMS") { %>
+        <div class="bg-red-900/50 border-l-4 border-red-400 rounded-lg text-red-100 px-4 py-3 relative mb-8" role="alert">
+          <div class="flex">
+            <div class="py-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400 mr-3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+              </svg>      
+            </div>
+            <div>
+                <p class="font-bold">Missing Parameters</p>
+                <p class="text-sm relative">All inputs must be filled out in order for you to create a server.</p>
+            </div>
+            <span onclick="location.href = '../admin';" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>      
+            </span>
+          </div>
+        </div>
+      <% } %>
+
+      <h2 class="text-white font-bold">Add coins</h2>
+      <p class="text-gray-400">Add coins to a user</p>
+      <br>
+      <label for="company-website" class="block text-sm font-medium text-gray-400">Email</label>
+      <div class="mt-1 flex rounded-md shadow-sm w-80">
+        <input type="text" name="company-website" id="ac-email" class="transition ease-in-out delay-100 block w-80 flex-1 text-white rounded-md bg-gray-700 border-gray-600/75 focus:border-blue-500 focus:ring-blue-500 sm:text-sm" placeholder="example@example.com">
+      </div>
+      <br>
+      <label for="company-website" class="block text-sm font-medium text-gray-400">Amount</label>
+      <div class="mt-1 flex rounded-md shadow-sm w-80">
+        <input type="text" name="company-website" id="ac-amount" class="transition ease-in-out delay-100 block w-80 flex-1 text-white rounded-md bg-gray-700 border-gray-600/75 focus:border-blue-500 focus:ring-blue-500 sm:text-sm" placeholder="100">
+      </div>
+      <a onclick="addCoins()" type="button" class="mt-8 transition px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-blue-500 rounded-lg hover:bg-blue-600 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-600 focus:text-white">
+        Add
+      </a >
+      <script>
+        async function addCoins() {
+          let email = encodeURIComponent(document.getElementById("ac-email").value);
+          let amount = encodeURIComponent(document.getElementById("ac-amount").value);
+          document.location.href = `/addcoins?amount=${amount}&email=${email}`;
+        };
+      </script>
+      <br><br>
+      <div class="hidden sm:block" aria-hidden="true">
+        <div class="py-5">
+          <div class="border-t border-gray-700/75"></div>
+        </div>
+      </div>
+      <br>
+      <h2 class="text-white font-bold">Set coins</h2>
+      <p class="text-gray-400">Set coins for a user</p>
+      <br>
+      <label for="company-website" class="block text-sm font-medium text-gray-400">Email</label>
+      <div class="mt-1 flex rounded-md shadow-sm w-80">
+        <input type="text" name="company-website" id="sc-email" class="transition ease-in-out delay-100 block w-80 flex-1 text-white rounded-md bg-gray-700 border-gray-600/75 focus:border-blue-500 focus:ring-blue-500 sm:text-sm" placeholder="example@example.com">
+      </div>
+      <br>
+      <label for="company-website" class="block text-sm font-medium text-gray-400">Amount</label>
+      <div class="mt-1 flex rounded-md shadow-sm w-80">
+        <input type="text" name="company-website" id="sc-amount" class="transition ease-in-out delay-100 block w-80 flex-1 text-white rounded-md bg-gray-700 border-gray-600/75 focus:border-blue-500 focus:ring-blue-500 sm:text-sm" placeholder="100">
+      </div>
+      <a onclick="addCoins()" type="button" class="mt-8 transition px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-blue-500 rounded-lg hover:bg-blue-600 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-600 focus:text-white">
+        Set
+      </a >
+      <script>
+        async function addCoins() {
+          let email = encodeURIComponent(document.getElementById("sc-email").value);
+          let amount = encodeURIComponent(document.getElementById("sc-amount").value);
+          document.location.href = `/setcoins?amount=${amount}&email=${email}`;
+        };
+      </script>
+      <br><br>
+
+  
+            <!-- /End replace -->
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  
+  <%- include('./components/footer') %>

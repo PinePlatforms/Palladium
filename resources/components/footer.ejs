@@ -1,0 +1,27 @@
+</footer>
+<script type="text/javascript">  
+// Palladium Load Time System
+    var before_loadtime = new Date().getTime();  
+    window.onload = Pageloadtime;  
+    function Pageloadtime() {  
+        var aftr_loadtime = new Date().getTime();  
+        // Time calculating in seconds  
+        pgloadtime = (aftr_loadtime - before_loadtime) / 1000  
+ 
+        document.getElementById("loadtime").innerHTML = pgloadtime + "s";  
+    }  
+</script>  
+<footer class="bg-gray-700/10 ml-64 max-w-10xl mx-auto fixed inset-x-0 bottom-0 backdrop-blur-md">
+    <div class="mx-auto">
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <p class="text-left text-sm text-gray-400 sm:text-left pt-4 pb-4">
+          <!-- WARNING | Removing the credits is illegal and violates the license. Legal action will be conducted by Pine Platforms Ltd if the credits are found to have been removed. -->
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Powered by <a class="text-white" href="https://github.com/PinePlatforms/Palladium">Palladium</a>, a powerful & fast open-source client area.
+        </p>
+        <p class="inline-flex text-right text-sm text-gray-400 sm:text-left pt-4 pb-4">
+            <code>v1.0.0-beta1 - Loaded in <span id="loadtime"></span></code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </p>
+      </div>
+    </div>
+  </footer>
+  
