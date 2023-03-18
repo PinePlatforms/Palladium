@@ -18,8 +18,6 @@ All features:
 <br>
 
 | :exclamation:  This is an extremely early version of Palladium and doesn't have all of features we want to add yet   |
-|----------------------------------------------------------------------------------------------------------------------|
-<br>
 | :warning:  Palladium currently doesn't encrypt user passwords. This will be fixed in 1.0.1, but for now, just don't leak your database.sqlite.       |
 |------------------------------------------------------------------------------------------------------------------------------------------------------|
 
