@@ -1,0 +1,6 @@
+<!-- By default, Palladium loads eggs from /storage/eggs.json -->
+<select type="text" name="company-website" id="egg" class="transition ease-in-out delay-100 block w-full flex-1 text-white rounded-md bg-gray-700 border-gray-600/75 focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+  <% eggs.forEach(function(egg) { %>
+    <option value="<%= egg.id %>"><%= egg.name %></option>
+  <% }); %>
+</select>
