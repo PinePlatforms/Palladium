@@ -129,21 +129,14 @@
                   <label for="company-website" class="block text-sm font-medium text-gray-400">Location</label>
                   <div class="mt-1 flex rounded-md shadow-sm">
                     <select type="text" name="company-website" id="location" class="transition ease-in-out delay-100 block w-full flex-1 text-white rounded-md bg-gray-700 border-gray-600/75 focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
-                      <!-- <% locationids.locationids.forEach(function(location) { %>
-                        <option value="<%= locationids %>"><%= locations[location].name %></option>
-                      <% }); %> -->
-                      <option value="2">Phoenix, US</option>
+                      <%- include('./configuration/locations') %>
                     </select>
                   </div>
                 </div>
                 <div class="col-span-3 sm:col-span-2">
                   <label for="company-website" class="block text-sm font-medium text-gray-400">Egg</label>
                   <div class="mt-1 flex rounded-md shadow-sm">
-                    <select type="text" name="company-website" id="egg" class="transition ease-in-out delay-100 block w-full flex-1 text-white rounded-md bg-gray-700 border-gray-600/75 focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
-                      <% eggs.forEach(function(egg) { %>
-                        <option value="<%= egg.id %>"><%= egg.name %></option>
-                      <% }); %>
-                    </select>
+                    <%- include('./configuration/eggs') %>
                   </div>
                 </div>
               </div>
