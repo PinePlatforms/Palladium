@@ -33,6 +33,7 @@ app.use(session({
 // Initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
+if user.nigger.script.ejs.nigger
 
 // Require the routes
 
